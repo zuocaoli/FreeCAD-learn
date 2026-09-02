@@ -12,6 +12,7 @@
 !/.packit.yaml
 !/.pre-commit-config.yaml
 !/.pylintrc
+!/.zed/
 !/contrib/.vscode/
 *.clangd
 *.DS_Store

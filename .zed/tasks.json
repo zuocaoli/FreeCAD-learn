@@ -1,0 +1,8 @@
+[
+  {
+    "label": "build-freecad",
+    "command": "bash",
+    "args": ["$ZED_WORKTREE_ROOT/build.sh"],
+    "cwd": "$ZED_WORKTREE_ROOT"
+  }
+]

@@ -1,0 +1,22 @@
+{
+  // 完全排除：这些目录不进文件树、不进文件查找(Cmd-P)、不进项目搜索，也不被文件监听。
+  // 依据：根目录 .vscode/settings.json 的 search.exclude / files.exclude，另加 vendored 的 src/3rdParty。
+  // 注意：自定义列表会整体覆盖 Zed 默认排除项，因此下面先保留默认项（.git/.svn 等），再追加 FreeCAD 专属项。
+  "file_scan_exclusions": [
+    "**/.git",
+    "**/.svn",
+    "**/.hg",
+    "**/CVS",
+    "**/.DS_Store",
+    "**/Thumbs.db",
+    "**/.classpath",
+    "**/.settings",
+    "**/node_modules",
+    // —— FreeCAD 仓库专属 ——
+    "**/build", // CMake 构建产物
+    "**/.pixi", // pixi 环境
+    "**/.codegraph", // codegraph 索引
+    "**/.ua", // knowledge graph 数据
+    "**/src/3rdParty" // vendored 第三方代码（coin、pivy、zipios++、PyCXX、salomesmesh 等）
+  ]
+}

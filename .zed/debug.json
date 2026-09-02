@@ -1,0 +1,14 @@
+[
+  {
+    "label": "FreeCAD GUI",
+    "program": "$ZED_WORKTREE_ROOT/build/debug/bin/FreeCAD",
+    "request": "launch",
+    "adapter": "CodeLLDB"
+  },
+  {
+    "label": "FreeCADCmd",
+    "program": "$ZED_WORKTREE_ROOT/build/debug/bin/FreeCADCmd",
+    "request": "launch",
+    "adapter": "CodeLLDB"
+  }
+]
