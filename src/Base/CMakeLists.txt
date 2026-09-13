@@ -132,7 +132,7 @@ generate_module_from_py(
     FreeCAD.Units
     Units_MODULE_GENERATED_SRCS
 )
-generate_from_any(Parameter.xsd Parameter.inl xmlSchemeString)
+generate_from_any(Resources/schemas/Parameter.xsd ParameterSchema.h ParameterSchema)
 
 if(SWIG_FOUND)
     # Create the file swigpyrun.hh and then compare with the file swigpyrun.h.
@@ -189,6 +189,7 @@ SET(FreeCADBase_UNITAPI_SRCS
     Unit.h
     Unit.cpp
     UnitPyImp.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/ParameterSchema.h
 )
 SOURCE_GROUP("Units" FILES ${FreeCADBase_UNITAPI_SRCS})
 
@@ -209,6 +210,7 @@ SET(FreeCADBase_CPP_SRCS
     ${Console_MODULE_GENERATED_SRCS}
     ConsoleObserver.cpp
     Color.cpp
+    OkLch.cpp
     CoordinateSystem.cpp
     CoordinateSystemPyImp.cpp
     DualQuaternion.cpp
@@ -224,7 +226,7 @@ SET(FreeCADBase_CPP_SRCS
     Matrix.cpp
     MatrixPyImp.cpp
     Observer.cpp
-    Parameter.xsd
+    Resources/schemas/Parameter.xsd
     Parameter.cpp
     ParameterObserver.cpp
     ParameterPy.cpp
@@ -264,6 +266,7 @@ SET(FreeCADBase_CPP_SRCS
     ViewProj.cpp
     Writer.cpp
     XMLTools.cpp
+    XMLParser.cpp
     ZipHeader.cpp
 )
 
@@ -284,6 +287,7 @@ SET(FreeCADBase_HPP_SRCS
     ConsoleObserver.h
     Converter.h
     Color.h
+    OkLch.h
     CoordinateSystem.h
     DualNumber.h
     DualQuaternion.h
@@ -333,6 +337,7 @@ SET(FreeCADBase_HPP_SRCS
     ViewProj.h
     Writer.h
     XMLTools.h
+    XMLParser.h
     ZipHeader.h
 )
 
@@ -391,7 +396,7 @@ endif()
 
 target_compile_warn_error(FreeCADBase)
 
-SET_BIN_DIR(FreeCADBase FreeCADBase)
+SET_BIN_DIR(FreeCADBase)
 
 if(WIN32)
     INSTALL(TARGETS FreeCADBase
